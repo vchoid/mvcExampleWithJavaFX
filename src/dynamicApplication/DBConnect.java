@@ -11,19 +11,15 @@ import java.sql.SQLException;
 public class DBConnect {
 
     private static Connection conn;
-    private static String url = "jdbc:mysql://localhost/company";
-    private static String user = "root";
-    private static String pass = "root";
+    private static String url = "jdbc:derby://localhost:1527/ServerPortDB;";
+    private static String user = "vchoid";
+    private static String pass = "flaig";
 
     public static Connection connect() throws SQLException{
         try{
-            Class.forName("com.mysql.jdbc.Driver").newInstance();
+            Class.forName("org.apache.derby.jdbc.ClientDriver");
         }catch(ClassNotFoundException cnfe){
             System.err.println("Error: "+cnfe.getMessage());
-        }catch(InstantiationException ie){
-            System.err.println("Error: "+ie.getMessage());
-        }catch(IllegalAccessException iae){
-            System.err.println("Error: "+iae.getMessage());
         }
 
         conn = DriverManager.getConnection(url,user,pass);

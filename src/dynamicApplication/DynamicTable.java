@@ -37,7 +37,7 @@ public class DynamicTable extends Application{
           try{
             c = DBConnect.connect();
             //SQL FOR SELECTING ALL OF CUSTOMER
-            String SQL = "SELECT * from CUSTOMer";
+            String SQL = "SELECT * from PORTS";
             //ResultSet
             ResultSet rs = c.createStatement().executeQuery(SQL);
 
